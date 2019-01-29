@@ -1,0 +1,11 @@
+#training-slug:
+#   path: /trainings/{slug}
+#   controller: App\Controller\TrainingController::showTraining
+#   requirements:
+#       slug : '[0-9a-zA-Z-]+'
+
+#module-slug:
+#   path: /module/{slug}
+#   controller: App\Controller\TrainingController::showModule
+#   requirements:
+#       slug : '[0-9a-zA-Z-]+'

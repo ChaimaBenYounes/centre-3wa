@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig' %}
+
+{%  block body %}
+	<body>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+						<h1>Hello !</h1>
+						<p>Choose a training in the menu…</p>
+                        {% if trainings is defined %}
+						<ul>
+						    {% for training in trainings %}
+    						<li><a href="{{ path('training-slug', {'id': training.id }) }}" > {{training.name }}</a></li>
+							{% endfor %}
+					    </ul>
+                        {% endif %}
+
+					</div>
+				</div>
+			</div>
+		
+{% endblock %}

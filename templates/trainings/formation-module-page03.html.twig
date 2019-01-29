@@ -1,0 +1,25 @@
+{%  extends 'base.html.twig' %}
+
+{%  block body %}
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+						<h1>{{ module.name }}</h1>
+						<p></p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+				{% if not module.trainings.empty %}
+					<h2>List of trainings</h2>
+					<ul class="list-group">
+					{% for training in module.trainings %}
+						<li class="list-group-item"><a href="{{ path('training-slug', {'id': training.id }) }}">{{ training.name }}</a></li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+				</div>
+			</div>
+		
+{% endblock %}

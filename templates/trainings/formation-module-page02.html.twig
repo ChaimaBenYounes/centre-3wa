@@ -1,0 +1,42 @@
+{%  extends 'base.html.twig' %}
+
+ {% block nav %}
+	        <div class="row">
+				<div class="col-xs-12">
+					<ul class="nav nav-pills">
+                        {% for t in trainings %}
+						<li {{ (training.id == t.id) ? 'class="active"'}} ><a href="{{ path('training-slug', {'id': t.id }) }}">{{ t.name|e }}</a></li>
+					    {% endfor %}
+			
+					</ul>
+				</div>
+			</div>
+
+{% endblock %}
+
+{%  block body %}
+		
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="jumbotron">
+						<h1>{{ training.name }}</h1>
+						<p>{{ training.description }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+				{% if not training.modules.empty %}
+
+					<h2>List of modules</h2>
+					<ul class="list-group">
+					 {% for module in training.modules %}
+						<li class="list-group-item"><a href="{{ path('module-slug', {'id': module.id }) }}">{{ module.name }}</a></li>
+					 {% endfor %}
+
+				{% endif %}
+					</ul>
+				</div>
+			</div>
+		
+{% endblock %}
